@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
+/*   By: noahalexandre <noahalexandre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 10:36:18 by noalexan          #+#    #+#             */
-/*   Updated: 2022/03/31 12:02:20 by noalexan         ###   ########.fr       */
+/*   Updated: 2022/04/06 11:52:15 by noahalexand      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_percent2(va_list param, const char character)
+{
+	if (character == 'X')
+		return (ft_puthexa(va_arg(param, unsigned int), 1, 0));
+	else if (character == 'p')
+		return (ft_puthexa(va_arg(param, unsigned long), 0, 1));
+	else if (character == 'u')
+		return (ft_putunsignednbr(va_arg(param, unsigned int)));
+	else
+		return (0);
+}
 
 static int	ft_percent(va_list param, const char character)
 {
@@ -22,27 +34,20 @@ static int	ft_percent(va_list param, const char character)
 	{
 		str = va_arg(param, char *);
 		if (str == NULL)
-			size = ft_printf("(null)");
+			return (ft_printf("(null)"));
 		else
-			size = ft_printf(str);
+			return (ft_putstr(str));
 	}
 	else if (character == 'c')
-		size = ft_putchar(va_arg(param, int));
+		return (ft_putchar(va_arg(param, int)));
 	else if (character == 'd' || character == 'i')
-		size = ft_putnbr(va_arg(param, int));
+		return (ft_putnbr(va_arg(param, int)));
 	else if (character == '%')
-		size = ft_putchar('%');
+		return (ft_putchar('%'));
 	else if (character == 'x')
-		size = ft_puthexa(va_arg(param, unsigned int), 0);
-	else if (character == 'X')
-		size = ft_puthexa(va_arg(param, unsigned int), 1);
-	else if (character == 'p')
-		size = ft_putadrr(va_arg(param, unsigned long));
-	else if (character == 'u')
-		size = ft_putunsignednbr(va_arg(param, unsigned int));
+		return (ft_puthexa(va_arg(param, unsigned int), 0, 0));
 	else
-		size = 0;
-	return (size);
+		return (ft_percent2(param, character));
 }
 
 int	ft_printf(const char *string, ...)

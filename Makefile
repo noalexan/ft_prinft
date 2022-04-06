@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+         #
+#    By: noahalexandre <noahalexandre@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/24 13:22:13 by noalexan          #+#    #+#              #
-#    Updated: 2022/03/31 11:04:58 by noalexan         ###   ########.fr        #
+#    Updated: 2022/04/05 20:05:08 by noahalexand      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	= -Werror -Wextra -Wall
 NAME	= libftprintf.a
 
 SRCS	=	ft_printf.c \
-			utils.c \
+			ft_printf_utils.c \
 
 OBJS	= $(SRCS:.c=.o)
 
