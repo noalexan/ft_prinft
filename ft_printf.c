@@ -6,38 +6,16 @@
 /*   By: noahalexandre <noahalexandre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 10:36:18 by noalexan          #+#    #+#             */
-/*   Updated: 2022/04/06 11:52:15 by noahalexand      ###   ########.fr       */
+/*   Updated: 2022/04/07 14:06:43 by noahalexand      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_percent2(va_list param, const char character)
-{
-	if (character == 'X')
-		return (ft_puthexa(va_arg(param, unsigned int), 1, 0));
-	else if (character == 'p')
-		return (ft_puthexa(va_arg(param, unsigned long), 0, 1));
-	else if (character == 'u')
-		return (ft_putunsignednbr(va_arg(param, unsigned int)));
-	else
-		return (0);
-}
-
 static int	ft_percent(va_list param, const char character)
 {
-	int		size;
-	char	*str;
-
-	size = 1;
 	if (character == 's')
-	{
-		str = va_arg(param, char *);
-		if (str == NULL)
-			return (ft_printf("(null)"));
-		else
-			return (ft_putstr(str));
-	}
+		return (ft_putstr(va_arg(param, char *)));
 	else if (character == 'c')
 		return (ft_putchar(va_arg(param, int)));
 	else if (character == 'd' || character == 'i')
@@ -46,8 +24,14 @@ static int	ft_percent(va_list param, const char character)
 		return (ft_putchar('%'));
 	else if (character == 'x')
 		return (ft_puthexa(va_arg(param, unsigned int), 0, 0));
+	else if (character == 'X')
+		return (ft_puthexa(va_arg(param, unsigned int), 1, 0));
+	else if (character == 'p')
+		return (ft_puthexa(va_arg(param, unsigned long), 0, 1));
+	else if (character == 'u')
+		return (ft_putunsignednbr(va_arg(param, unsigned int)));
 	else
-		return (ft_percent2(param, character));
+		return (0);
 }
 
 int	ft_printf(const char *string, ...)

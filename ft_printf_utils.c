@@ -6,7 +6,7 @@
 /*   By: noahalexandre <noahalexandre@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:19:48 by noahalexand       #+#    #+#             */
-/*   Updated: 2022/04/06 11:48:37 by noahalexand      ###   ########.fr       */
+/*   Updated: 2022/04/12 13:38:40 by noahalexand      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_putstr(char *str)
 {
 	int	i;
 
+	if (str == NULL)
+		return (ft_putstr("(null)"));
 	i = -1;
 	while (str[++i])
 		ft_putchar(str[i]);
@@ -55,7 +57,7 @@ int	ft_puthexa(unsigned long nb, int upper, int add)
 	char	*dic;
 
 	if (add)
-		return (ft_putchar('0') + ft_putchar('x') + ft_puthexa(nb, 0, 0));
+		return (ft_putstr("0x") + ft_puthexa(nb, 0, 0));
 	dic = "0123456789abcdef";
 	if (upper)
 		dic = "0123456789ABCDEF";
