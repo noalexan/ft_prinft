@@ -6,7 +6,7 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 10:36:18 by noalexan          #+#    #+#             */
-/*   Updated: 2022/07/06 11:06:02 by noalexan         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:02:29 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,6 @@ int	ft_printf(int fd, const char *string, ...)
 		else
 			size += ft_putchar(string[i], fd);
 		i++;
-	}
-	if (fd == 2)
-	{
-		write(1, "\n", 1);
-		exit(EXIT_FAILURE);
 	}
 	return (size);
 }
