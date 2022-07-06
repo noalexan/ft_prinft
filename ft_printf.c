@@ -6,11 +6,11 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 10:36:18 by noalexan          #+#    #+#             */
-/*   Updated: 2022/06/08 13:11:42 by noalexan         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:06:02 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/pipex.h"
+#include "ft_printf.h"
 
 static int	ft_percent(va_list param, const char character, int fd)
 {

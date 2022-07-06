@@ -6,11 +6,11 @@
 /*   By: noalexan <noalexan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 16:19:48 by noahalexand       #+#    #+#             */
-/*   Updated: 2022/05/30 09:53:22 by noalexan         ###   ########.fr       */
+/*   Updated: 2022/07/06 11:06:36 by noalexan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	ft_putchar(const char character, int fd)
 {
